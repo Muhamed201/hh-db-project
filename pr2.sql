@@ -41,6 +41,7 @@ INSERT INTO responses (vacancy_id, resume_id, applied_at)
 SELECT 
     v.id,
     (random() * 99999 + 1)::int,
-    v.published_at + (random() * INTERVAL '7 days')
+    v.published_at + (random() * INTERVAL '30 days')
 FROM vacancies v
-CROSS JOIN generate_series(1, 15);
+CROSS JOIN generate_series(1, (random() * 20 + 1)::int)
+WHERE random() < 0.7;

@@ -25,7 +25,7 @@ CREATE TABLE vacancies (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    area_id INTEGER REFERENCES areas(id),
+    area_id INTEGER NOT NULL REFERENCES areas(id),
     employer_id INTEGER REFERENCES employers(id),
     specialization_id INTEGER REFERENCES specializations(id),
     compensation_from INTEGER,
@@ -38,7 +38,7 @@ CREATE TABLE resumes (
     candidate_id INTEGER REFERENCES candidates(id),
     title VARCHAR(255) NOT NULL,
     specialization_id INTEGER REFERENCES specializations(id),
-    area_id INTEGER REFERENCES areas(id),
+    area_id INTEGER NOT NULL REFERENCES areas(id),
     compensation_expected INTEGER,
     published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

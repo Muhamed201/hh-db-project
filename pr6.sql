@@ -20,4 +20,5 @@ CREATE INDEX idx_responses_vacancy_id ON responses(vacancy_id);
 -- Индекс для фильтрации откликов (Задание 5)
 -- Мы ищем отклики за первую неделю после публикации. Индекс на дату отклика 
 -- помогает базе быстро отсечь все старые записи и работать только с актуальным временным окном.
-CREATE INDEX idx_responses_applied_at ON responses(applied_at);
+CREATE INDEX idx_responses_vacancy_applied_at ON responses(vacancy_id, applied_at);
+-- Да так намного лучше. Так мы покроем сразу два условия в 5 задании. Спасибо за совет)
